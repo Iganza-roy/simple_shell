@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * tokenize_cmd - ....
- * @cmd_line: ...
+ * tokenize_cmd - splits  a string into tockens
+ * @cmd_line: command inputed
  */
 
 void tokenize_cmd(char *cmd_line)
@@ -24,7 +24,7 @@ void tokenize_cmd(char *cmd_line)
 	if (c_pid == 0)
 	{
 		execvp(arguments[0], arguments);
-		perror("erroe");
+		perror("error");
 		exit(EXIT_FAILURE);
 	}
 	else
