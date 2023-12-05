@@ -10,7 +10,7 @@
 
 #define MAX_CMD_LEN 1024
 #define MAX_TOKEN_SIZE 1024
-#define MAX_PATH_LEN 1024
+
 
 
 
