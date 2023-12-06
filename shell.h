@@ -11,9 +11,6 @@
 #define MAX_CMD_LEN 1024
 #define MAX_TOKEN_SIZE 1024
 
-
-
-
 void _print(const char *text);
 void user_prompt(void);
 void read_cmd(char *cmd, size_t size);
