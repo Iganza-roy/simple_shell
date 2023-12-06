@@ -21,6 +21,8 @@ size_t _strcspn(const char *cmd, const char *reject);
 pid_t execute_cmd(char *cmd);
 int main(void);
 void tokenize_cmd(char *cmd_line);
+void exit_me(void);
+void print_env(void);
 
 #endif
 
