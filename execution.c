@@ -4,7 +4,6 @@
  * execute_cmd - ...
  * @cmd: ...
  */
-
 pid_t execute_cmd(char *cmd)
 {
 	pid_t c_pid = fork();

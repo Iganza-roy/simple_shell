@@ -3,8 +3,8 @@
 /**
  * exit_m - ...
  */
-void exit_me(void)
+void exit_me(int status)
 {
-	_print("Exiting....\n");
-	exit(0);
+	_printme("%d\n", status);
+	exit(status);
 }

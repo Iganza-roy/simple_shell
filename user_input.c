@@ -43,12 +43,12 @@ void read_cmd(char *cmd, size_t size)
 	{
 		if (feof(stdin))
 		{
-			_print("\n");
+			_printme("\n");
 			exit(EXIT_SUCCESS);
 		}
 		else
 		{
-			_print("Error while reading\n");
+			_printme("Error while reading\n");
 			exit(EXIT_FAILURE);
 		}
 	}

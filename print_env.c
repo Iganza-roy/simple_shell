@@ -5,9 +5,9 @@
  */
 void print_env(void)
 {
-	extern char **environ;
-	for (char **env = environ; *env != NULL; env++)
+	extern char **environment;
+	for (char **env = environment; *env != NULL; env++)
 	{
-		printf("%s\n", *env);
+		_printme("%s\n", *env);
 	}
 }

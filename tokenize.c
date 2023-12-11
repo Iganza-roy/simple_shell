@@ -7,28 +7,55 @@
 
 void tokenize_cmd(char *cmd_line)
 {
-	char *arguments[MAX_TOKEN_SIZE], *tkn;
-	int ac = 0;
+	char *args[MAX_TOKEN_SIZE];
+	int argc = 0;
+	int fr;
 
-	tkn = strtok(cmd_line, " ");
+	char *token = cmd_line;
 
-	while (tkn != NULL)
+	while (*token != '\0')
 	{
-		arguments[ac++] = tkn;
-		tkn = strtok(NULL, " ");
+		while (*token == ' ' || *token == '\n' || *token == '\t')
+		{
+			token++;
+		}
+
+		if (*token == '\0')
+		{
+			break;
+		}
+
+		char *last = token;
+
+		while (*last != '\0' && *last != ' ' && *last != '\n' && *last != '\t')
+		{
+			last++;
+		}
+
+		size_t tkn_len = last - token;
+		args[argc] = malloc(tkn_len + 1);
+		strncpy(args[argc], token, tkn_len);
+		args[argc][tkn_len] = '\0';
+		argc++;
+
+		token = last;
 	}
-	arguments[ac] = NULL;
+	args[argc] = NULL;
 
 	pid_t c_pid = fork();
 
 	if (c_pid == 0)
 	{
-		execvp(arguments[0], arguments);
+		execvp(args[0], args);
 		perror("error");
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
 		wait(NULL);
+	}
+	for (fr = 0; fr < argc; fr++)
+	{
+		free(args[fr]);
 	}
 }
