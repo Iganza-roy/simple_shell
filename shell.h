@@ -29,7 +29,13 @@ char *get_line(void);
 
 void exit_status(char *cmd);
 void exit_zero(char *cmd);
+struct node {
+        char *dir;
+        struct node *next;
+};
+struct node *mk_path(char *pth, char del);
 
+int path(void);
 int set_env(const char *var, const char *val, int owr);
 int unset_env(const char *var);
 void _cd(const char *dir);
