@@ -47,7 +47,7 @@ void tokenize_cmd(char *cmd_line)
 	if (c_pid == 0)
 	{
 		execvp(args[0], args);
-		perror("error");
+		/*perror("error");*/
 		exit(EXIT_FAILURE);
 	}
 	else

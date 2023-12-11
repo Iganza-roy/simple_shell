@@ -30,6 +30,9 @@ char *get_line(void);
 void exit_status(char *cmd);
 void exit_zero(char *cmd);
 
+int set_env(const char *var, const char *val, int owr);
+int unset_env(const char *var);
+void _cd(const char *dir);
 
 #endif
 
