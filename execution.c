@@ -16,8 +16,16 @@ pid_t execute_cmd(char *cmd)
 
 	if (c_pid == 0)
 	{
-		char *a[] = {cmd, NULL};
-		execvp(cmd, a);
+		char **a = malloc(2 * sizeof(char *));
+
+		if (a == NULL)
+		{
+			perror("malloc");
+			exit(EXIT_FAILURE);
+		}
+		a[0] = cmd;
+		a[1] = NULL;
+
 		perror("execvp");
 		exit(EXIT_FAILURE);
 	}

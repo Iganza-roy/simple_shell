@@ -7,6 +7,7 @@
 void _cd(const char *dir)
 {
 	char *n_dir;
+	char curr_dir[MAX_CMD_LEN];
 
 	if (dir == NULL)
 	{
@@ -32,7 +33,7 @@ void _cd(const char *dir)
 	{
 		n_dir = (char *)dir;
 	}
-	char curr_dir[MAX_CMD_LEN];
+
 	getcwd(curr_dir, sizeof(curr_dir));
 	setenv("OLDPWD", curr_dir, 1);
 

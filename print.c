@@ -6,12 +6,12 @@
  */
 void _printme(const char *output, ...)
 {
+	size_t len = 0;
+	char buf[MAX_OUTPUT_SIZE];
+	
 	va_list args;
 	va_start(args, output);
-
-	char buf[MAX_OUTPUT_SIZE];
-	size_t len = 0;
-
+	
 	while (*output != '\0')
 	{
 		if (*output == '%' && *(output + 1) != '\0')

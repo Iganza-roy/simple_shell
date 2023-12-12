@@ -2,17 +2,17 @@
 
 int path(void)
 {
-	struct node *h;
+	struct node *h = NULL;
+	struct node *current;
+	struct node *next;
 
-	struct node *current = h;
+	current = h;
 
 	while (current != NULL)
 	{
-		printf("%s\n", current->dir);
+		_printme("%s\n", current->dir);
 		current = current->next;
 	}
-
-	struct node *next;
 
 	while (h != NULL)
 	{

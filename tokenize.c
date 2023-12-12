@@ -10,6 +10,9 @@ void tokenize_cmd(char *cmd_line)
 	char *args[MAX_TOKEN_SIZE];
 	int argc = 0;
 	int fr;
+	char *last;
+	size_t tkn_len;
+	pid_t c_pid = fork();
 
 	char *token = cmd_line;
 
@@ -25,14 +28,14 @@ void tokenize_cmd(char *cmd_line)
 			break;
 		}
 
-		char *last = token;
+		last = token;
 
 		while (*last != '\0' && *last != ' ' && *last != '\n' && *last != '\t')
 		{
 			last++;
 		}
 
-		size_t tkn_len = last - token;
+		tkn_len = last - token;
 		args[argc] = malloc(tkn_len + 1);
 		strncpy(args[argc], token, tkn_len);
 		args[argc][tkn_len] = '\0';
@@ -41,8 +44,6 @@ void tokenize_cmd(char *cmd_line)
 		token = last;
 	}
 	args[argc] = NULL;
-
-	pid_t c_pid = fork();
 
 	if (c_pid == 0)
 	{

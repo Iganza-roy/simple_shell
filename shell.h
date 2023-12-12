@@ -14,6 +14,7 @@
 #define MAX_PATH_LEN 1024
 #define BUFF_SIZE 1024
 #define MAX_OUTPUT_SIZE 512
+#define MAX_ALIASES 32
 
 void _printme(const char *output, ...);
 void user_prompt(void);
@@ -24,7 +25,6 @@ int main(void);
 void tokenize_cmd(char *cmd_line);
 void exit_me(int status);
 void print_env(void);
-//void get_path(char *cmd);
 char *get_line(void);
 
 void exit_status(char *cmd);
@@ -39,6 +39,14 @@ int path(void);
 int set_env(const char *var, const char *val, int owr);
 int unset_env(const char *var);
 void _cd(const char *dir);
+
+struct Alias {
+	char *name;
+	char *val;
+};
+void alias_helper(int ac, struct Alias al[], char *cmd);
+void _alias(int ac, struct Alias al[], char *args[]);
+void free_alias(int ac, struct Alias al[]);
 
 #endif
 

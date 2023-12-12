@@ -10,13 +10,12 @@ char *get_line(void)
 	static size_t buf_ind = 0;
 	static ssize_t byr = 0;
 
-	ssize_t byr_curr = 0;
 	char *l = NULL;
 	size_t l_len = 0;
 
 	while (1)
 	{
-		if (buf_ind == byr)
+		if ((ssize_t)buf_ind == byr)
 		{
 			byr = read(STDIN_FILENO, buf, BUFF_SIZE);
 
@@ -24,6 +23,12 @@ char *get_line(void)
 			{
 				if (l_len > 0)
 				{
+					l = realloc(l, l_len + 1);
+					if (l == NULL)
+					{
+						exit(EXIT_FAILURE);
+					}
+					l[l_len] = '\0';
 					return (l);
 				}
 				else
@@ -52,8 +57,10 @@ char *get_line(void)
 	l = realloc(l, l_len + 1);
 	if (l == NULL)
 	{
-		return (NULL);
+		exit(EXIT_FAILURE);
 	}
 
-	return (NULL);
+	l[l_len] = '\0';
+
+	return (l);
 }
