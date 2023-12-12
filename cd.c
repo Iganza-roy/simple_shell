@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * _cd - ...
- * @dir: ...
+ * _cd - changes directory
+ * @dir: parameter received
  */
 void _cd(const char *dir)
 {

@@ -33,9 +33,9 @@ size_t _strcspn(const char *s, const char *reject)
 }
 
 /**
- * read_cmd - ...
- * @cmd: ...
- * @size: ..
+ * read_cmd - receives a command
+ * @cmd: command received
+ * @size: size of the command
  */
 void read_cmd(char *cmd, size_t size)
 {
