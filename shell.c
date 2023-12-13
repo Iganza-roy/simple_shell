@@ -15,6 +15,7 @@ int main(void)
 		read_cmd(cmd, sizeof(cmd));
 		tokenize_cmd(cmd);
 		exit_status(cmd);
+		execute_cmd(cmd);
 		/*Handle cd*/
 		if (_strncmp(cmd, "cd", 2) == 0)
 		{
