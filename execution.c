@@ -27,7 +27,6 @@ pid_t execute_cmd(char *cmd)
 		a[0] = cmd;
 		a[1] = NULL;
 
-		perror("execvp");
 		exit(EXIT_FAILURE);
 	}
 	else
