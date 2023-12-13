@@ -37,7 +37,7 @@ void tokenize_cmd(char *cmd_line)
 
 		tkn_len = last - token;
 		args[argc] = malloc(tkn_len + 1);
-		strncpy(args[argc], token, tkn_len);
+		_strncpy(args[argc], token, tkn_len);
 		args[argc][tkn_len] = '\0';
 		argc++;
 

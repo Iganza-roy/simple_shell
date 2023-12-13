@@ -16,7 +16,7 @@ int main(void)
 		tokenize_cmd(cmd);
 		exit_status(cmd);
 		/*Handle cd*/
-		if (strncmp(cmd, "cd", 2) == 0)
+		if (_strncmp(cmd, "cd", 2) == 0)
 		{
 			char *arg = strtok(cmd + 2, " \t");
 			_cd(arg);

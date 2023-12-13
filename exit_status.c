@@ -5,7 +5,7 @@
  */
 void exit_status(char *cmd)
 {
-	if (strncmp(cmd, "exit", 4) == 0)
+	if (_strncmp(cmd, "exit", 4) == 0)
 	{
 		char *a = cmd + 4;
 
@@ -32,7 +32,7 @@ void exit_status(char *cmd)
 			}
 		}
 	}
-	else if (strcmp(cmd, "exit") == 0)
+	else if (_strcmp(cmd, "exit") == 0)
 	{
 		exit_me(0);
 	}

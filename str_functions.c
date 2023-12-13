@@ -84,3 +84,50 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+
+/**
+ * _strncmp - compares strings of n bytes
+ * @s1: string 1
+ * @s2: string 2
+ * @n: number of bytes
+ * Return: copied string
+ */
+int _strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (n > 0)
+	{
+		if (*s1 != *s2)
+		{
+			return (*s1 - *s2);
+		}
+
+		if (*s1 == '\0')
+		{
+			return (0);
+		}
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
+}
+
+/**
+ * _strncpy - copies string of n bytes
+ * @dest: destination
+ * @src: source
+ */
+void _strncpy(char *dest, char *src, size_t n)
+{
+	size_t x;
+
+	for (x = 0; x < n && src[x] != '\0'; x++)
+	{
+		dest[x] = src[x];
+	}
+
+	for (; x < n; ++x)
+	{
+		dest[x] = '\0';
+	}
+}
