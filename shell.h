@@ -16,6 +16,8 @@
 #define MAX_OUTPUT_SIZE 512
 #define MAX_ALIASES 32
 
+extern char **environ;
+
 void _printme(const char *output, ...);
 void user_prompt(void);
 void read_cmd(char *cmd, size_t size);

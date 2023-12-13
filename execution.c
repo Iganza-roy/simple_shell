@@ -3,6 +3,7 @@
 /**
  * execute_cmd - ...
  * @cmd: ...
+ * Return: ...
  */
 pid_t execute_cmd(char *cmd)
 {
@@ -32,6 +33,7 @@ pid_t execute_cmd(char *cmd)
 	else
 	{
 		int state;
+
 		waitpid(c_pid, &state, 0);
 
 		if (WIFEXITED(state))

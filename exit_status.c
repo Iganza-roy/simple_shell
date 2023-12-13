@@ -2,6 +2,7 @@
 
 /**
  * exit_status - handles arguments for the built-in exit
+ * @cmd: argument
  */
 void exit_status(char *cmd)
 {

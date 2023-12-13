@@ -13,7 +13,7 @@ int set_env(const char *var, const char *val, int owr)
 	if (var == NULL || val == NULL)
 	{
 		fprintf(stderr, "Invalid\n");
-		return -1;
+		return (-1);
 	}
 
 	if (getenv(var) != NULL && !owr)

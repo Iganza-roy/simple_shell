@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+ * path - handles path
+ * Return: 0 on success
+ */
+
 int path(void)
 {
 	struct node *h = NULL;

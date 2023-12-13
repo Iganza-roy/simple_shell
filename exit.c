@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * exit_m - ...
+ * exit_me - ...
+ * @status: ...
  */
 void exit_me(int status)
 {
