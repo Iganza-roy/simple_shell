@@ -40,13 +40,7 @@ int set_env(const char *var, const char *val, int owr);
 int unset_env(const char *var);
 void _cd(const char *dir);
 
-struct Alias {
-	char *name;
-	char *val;
-};
-void alias_helper(int ac, struct Alias al[], char *cmd);
-void _alias(int ac, struct Alias al[], char *args[]);
-void free_alias(int ac, struct Alias al[]);
+
 
 #endif
 

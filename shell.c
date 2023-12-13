@@ -15,15 +15,12 @@ int main(void)
 		read_cmd(cmd, sizeof(cmd));
 		tokenize_cmd(cmd);
 		exit_status(cmd);
-
 		/*Handle cd*/
 		if (strncmp(cmd, "cd", 2) == 0)
 		{
 			char *arg = strtok(cmd + 2, " \t");
 			_cd(arg);
 		}
-
-
 	}
 	/* implement getline function*/
 	do {
