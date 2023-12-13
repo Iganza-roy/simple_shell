@@ -41,6 +41,7 @@ int path(void);
 int set_env(const char *var, const char *val, int owr);
 int unset_env(const char *var);
 void _cd(const char *dir);
+void run_shell(int argc, char *argv[]);
 
 /*Handle strings*/
 
