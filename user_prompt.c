@@ -6,6 +6,5 @@
  */
 void user_prompt(void)
 {
-	_printme("#cisfun$ ");
-	fflush(stdout);
+	_printme("$ ");
 }
