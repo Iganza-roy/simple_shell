@@ -4,7 +4,8 @@
  * user_prompt - ...
  * @void: ...
  */
-void user_prompt(void)
+void user_prompt(in *inf)
 {
-	_printme("$ ");
+	if (inf->is_itrv)
+		_printme("$ ");
 }

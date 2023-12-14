@@ -8,10 +8,11 @@ int main(void)
 {
 	char *got_line;
 	char cmd[MAX_CMD_LEN];
-
+	in inf;
+	inf.is_itrv = isatty(STDIN_FILENO) &&isatty(STDOUT_FILENO);
 	while (1)
 	{
-		user_prompt();
+		user_prompt(&inf);
 		read_cmd(cmd, sizeof(cmd));
 		tokenize_cmd(cmd);
 		exit_status(cmd);

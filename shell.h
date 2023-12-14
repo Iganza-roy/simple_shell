@@ -17,9 +17,12 @@
 #define MAX_ALIASES 32
 
 extern char **environ;
-
+typedef struct
+{
+        int is_itrv;
+}in;
 void _printme(const char *output, ...);
-void user_prompt(void);
+void user_prompt(in *inf);
 void read_cmd(char *cmd, size_t size);
 size_t _strcspn(const char *cmd, const char *reject);
 pid_t execute_cmd(char *cmd);
@@ -51,8 +54,6 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(const char *s1, const char *s2, size_t n);
 void _strncpy(char *dest, char *src, size_t n);
 char *_strdup(const char *s1);
-
-
 
 
 #endif
