@@ -9,7 +9,6 @@
  */
 int main(int argc, char **argv, char *envv[])
 {
-<<<<<<< HEAD
 	char *l = NULL, *p_cmd = NULL, *p = NULL;
 	size_t bf_size = 0;
 	ssize_t l_size = 0;
@@ -43,25 +42,6 @@ int main(int argc, char **argv, char *envv[])
 			perror(argv[0]);
 		else
 			_exe(p_cmd, cmd);
-=======
-	char *got_line;
-	char cmd[MAX_CMD_LEN];
-	in inf;
-	inf.is_itrv = isatty(STDIN_FILENO) &&isatty(STDOUT_FILENO);
-	while (1)
-	{
-		user_prompt(&inf);
-		read_cmd(cmd, sizeof(cmd));
-		tokenize_cmd(cmd);
-		exit_status(cmd);
-		execute_cmd(cmd);
-		/*Handle cd*/
-		if (_strncmp(cmd, "cd", 2) == 0)
-		{
-			char *arg = strtok(cmd + 2, " \t");
-			_cd(arg);
-		}
->>>>>>> 7e25e2440cf36957b79543d742ce79dfb9c8e29a
 	}
 	if (l_size < 0 && fg.interact)
 		write(STDERR_FILENO, "\n", 1);
