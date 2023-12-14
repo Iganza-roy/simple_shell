@@ -1,11 +1,13 @@
 #include "shell.h"
 
 /**
- * exit_me - ...
- * @status: ...
+ * exit_me - exits cmd
+ * @cmd: command
+ * @l: read line
  */
-void exit_me(int status)
+void exit_me(char **cmd, char *l)
 {
-	_printme("%d\n", status);
-	exit(status);
+	free(l);
+	free_me(cmd);
+	exit(0);
 }

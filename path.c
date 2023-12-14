@@ -1,30 +1,27 @@
 #include "shell.h"
 
 /**
- * path - handles path
- * Return: 0 on success
+ * path_finder - finds path
+ * Return: NULL if path not found
  */
-
-int path(void)
+char *path_finder(void)
 {
-	struct node *h = NULL;
-	struct node *current;
-	struct node *next;
+	int count = 0;
+	char **env = environ, *p = NULL;
 
-	current = h;
-
-	while (current != NULL)
+	while (*env)
 	{
-		_printme("%s\n", current->dir);
-		current = current->next;
+		if (_strncmp(*env, "PATH=", 5) == 0)
+		{
+			p = *env;
+			while (*p && count < 5)
+			{
+				p++;
+				count++;
+			}
+			return (p);
+		}
+		env++;
 	}
-
-	while (h != NULL)
-	{
-		next = h->next;
-		free(h->dir);
-		free(h);
-		h = next;
-	}
-	return (0);
+	return (NULL);
 }

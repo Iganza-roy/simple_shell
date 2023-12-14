@@ -1,62 +1,49 @@
 #include "shell.h"
 
 /**
- * tokenize_cmd - splits  a string into tockens
- * @cmd_line: command inputed
+ * tokenize_me - creates tokens
+ * @l: line to be tokenized
+ * Return: strings array
  */
-
-void tokenize_cmd(char *cmd_line)
+char **tokenize_me(char *l)
 {
-	char *args[MAX_TOKEN_SIZE];
-	int argc = 0;
-	int fr;
-	char *last;
-	size_t tkn_len;
-	pid_t c_pid = fork();
+	char *bf1 = NULL, *bf2 = NULL, *tkn = NULL, *whites = " :\t\r\n";
+	size_t i = 0, fg = 0;
+	int tkn_size = 1;
+	char **tkns = NULL;
 
-	char *token = cmd_line;
+	bf1 = _strdup(l);
+	if (!bf1)
+		return (NULL);
+	bf2 = bf1;
 
-	while (*token != '\0')
+	while (*bf2)
 	{
-		while (*token == ' ' || *token == '\n' || *token == '\t')
+		if (_strchr(whites, *bf2) != NULL && fg == 0)
 		{
-			token++;
+			tkn_size++;
+			fg = 1;
 		}
+		else if (_strchr(whites, *bf2) == NULL && fg == 1)
+			fg = 0;
+		bf2++;
+	}
 
-		if (*token == '\0')
+	tkns = malloc(sizeof(char *) * (tkn_size + 1));
+	tkn = strtok(bf1, whites);
+
+	while (tkn)
+	{
+		tkns[i] = _strdup(tkn);
+		if (tkns[i] == NULL)
 		{
-			break;
+			free(tkns);
+			return (NULL);
 		}
-
-		last = token;
-
-		while (*last != '\0' && *last != ' ' && *last != '\n' && *last != '\t')
-		{
-			last++;
-		}
-
-		tkn_len = last - token;
-		args[argc] = malloc(tkn_len + 1);
-		_strncpy(args[argc], token, tkn_len);
-		args[argc][tkn_len] = '\0';
-		argc++;
-
-		token = last;
+		tkn = strtok(NULL, whites);
+		i++;
 	}
-	args[argc] = NULL;
-
-	if (c_pid == 0)
-	{
-		execvp(args[0], args);
-		/*perror("error");*/
-		exit(EXIT_FAILURE);
-	}
-	else
-	{
-		wait(NULL);
-	}
-	for (fr = 0; fr < argc; fr++)
-	{
-		free(args[fr]);
-	}
+	tkns[i] = '\0';
+	free(bf1);
+	return (tkns);
 }
