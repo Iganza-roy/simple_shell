@@ -120,14 +120,14 @@ int _varreps(infolist_t *infolist)
 	if (infolist->argument_v[x][0] != '$' || !infolist->argument_v[x][1])
 		continue;
 
-	if (!compareStrings(infolist->argument_v[x], "$?"))
+	if (!cmpstr(infolist->argument_v[x], "$?"))
 	{
 		_strrep(&(infolist->argument_v[x]),
 			duplcatString(convert_number(infolist->my_status, 10, 0)));
 		continue;
 	}
 
-	if (!compareStrings(infolist->argument_v[x], "$$"))
+	if (!cmpstr(infolist->argument_v[x], "$$"))
 	{
 		_strrep(&(infolist->argument_v[x]),
 			duplcatString(convert_number(getpid(), 10, 0)));

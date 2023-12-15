@@ -72,11 +72,11 @@ int prtAlias(stringlist_t *my_node)
 		ptr = locateChar(my_node->string, '=');
 
 		for (m = my_node->string; m <= ptr; m++)
-			PutCharacter(*m);
+			ptchr(*m);
 
-		PutCharacter('\'');
-		Puts(ptr + 1);
-		Puts("'\n");
+		ptchr('\'');
+		pts(ptr + 1);
+		pts("'\n");
 		return (0);
 	}
 	return (1);

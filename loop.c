@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * shellLoob - loops main function
+ * SL - loops main function
  * @infolist: ....
  * @argument_v: ..
  * Return: ...
  */
-int shellLoob(infolist_t *infolist, char **argument_v)
+int SL(infolist_t *infolist, char **argument_v)
 {
 	ssize_t x = 0;
 	int result = 0;
@@ -16,8 +16,8 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 		info_clear(infolist);
 
 		if (IsInteractive(infolist))
-			Puts("$ ");
-		errPrintChar(bufferFlush);
+			pts("$ ");
+		erprchar(bufferFlush);
 		x = _get_in(infolist);
 		if (x != -1)
 		{
@@ -26,10 +26,10 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 			result = findBuiltinCom(infolist);
 
 			if (result == -1)
-				cheackPasses(infolist);
+				chkps(infolist);
 		}
 		else if (IsInteractive(infolist))
-			PutCharacter('\n');
+			ptchr('\n');
 		info_free(infolist, 0);
 	}
 	his_wr(infolist);
@@ -67,7 +67,7 @@ int findBuiltinCom(infolist_t *infolist)
 	};
 
 	for (x = 0; builtInTabl[x].flag; x++)
-		if (compareStrings(infolist->argument_v[0], builtInTabl[x].flag) == 0)
+		if (cmpstr(infolist->argument_v[0], builtInTabl[x].flag) == 0)
 		{
 			infolist->err_line_num++;
 			builtInRet = builtInTabl[x].function(infolist);
@@ -77,10 +77,10 @@ int findBuiltinCom(infolist_t *infolist)
 }
 
 /**
- * cheackPasses - ...
+ * chkps - ...
  * @infolist: ...
  */
-void cheackPasses(infolist_t *infolist)
+void chkps(infolist_t *infolist)
 {
 	char *str_path = NULL;
 	int x, y;
@@ -98,19 +98,19 @@ void cheackPasses(infolist_t *infolist)
 	if (!y)
 		return;
 
-	str_path = findPath(infolist, getEnv(infolist, "PATH="),
+	str_path = fpth(infolist, getEnv(infolist, "PATH="),
 	infolist->argument_v[0]);
 	if (str_path)
 	{
 		infolist->str_path = str_path;
-		forkThread(infolist);
+		fkthrd(infolist);
 	}
 	else
 	{
 		if ((IsInteractive(infolist) || getEnv(infolist, "PATH=")
 			|| infolist->argument_v[0][0] == '/') &&
-			isCMD(infolist, infolist->argument_v[0]))
-			forkThread(infolist);
+			iscommand(infolist, infolist->argument_v[0]))
+			fkthrd(infolist);
 		else if (*(infolist->argument) != '\n')
 		{
 			infolist->my_status = 127;
@@ -120,10 +120,10 @@ void cheackPasses(infolist_t *infolist)
 }
 
 /**
- * forkThread - new process
+ * fkthrd - new process
  * @infolist: ...
  */
-void forkThread(infolist_t *infolist)
+void fkthrd(infolist_t *infolist)
 {
 	pid_t child_pid;
 

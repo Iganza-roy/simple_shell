@@ -14,8 +14,8 @@ char *getFileHistory(infolist_t *infolist)
 	if (!directo)
 		return (NULL);
 
-	buffer = malloc(sizeof(char) * (getStringLength(directo) +
-	getStringLength(fileHistory) + 2));
+	buffer = malloc(sizeof(char) * (strl(directo) +
+	strl(fileHistory) + 2));
 	if (!buffer)
 		return (NULL);
 
@@ -51,7 +51,7 @@ int his_wr(infolist_t *infolist)
 
 	for (my_node = infolist->my_history; my_node; my_node = my_node->next_node)
 	{
-		charsCount(my_node->string, fileDes);
+		chcnt(my_node->string, fileDes);
 
 		WFileDescreptor('\n', fileDes);
 	}

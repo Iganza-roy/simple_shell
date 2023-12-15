@@ -39,7 +39,7 @@ char **listToStrings(stringlist_t *firstNode)
 
 	for (x = 0; currentNode; currentNode = currentNode->next_node, x++)
 	{
-		string = malloc(getStringLength(currentNode->string) + 1);
+		string = malloc(strl(currentNode->string) + 1);
 		if (!string)
 		{
 			for (z = 0; z < x; z++)
@@ -67,11 +67,11 @@ size_t _elelist(const stringlist_t *x)
 
 	while (x)
 	{
-		Puts(convert_number(x->number, 10, 0));
-		PutCharacter(':');
-		PutCharacter(' ');
-		Puts(x->string ? x->string : "(Null)");
-		Puts("\n");
+		pts(convert_number(x->number, 10, 0));
+		ptchr(':');
+		ptchr(' ');
+		pts(x->string ? x->string : "(Null)");
+		pts("\n");
 		x = x->next_node;
 		j++;
 	}

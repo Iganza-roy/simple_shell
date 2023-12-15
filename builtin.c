@@ -17,8 +17,8 @@ int ex_eml(infolist_t *infolist)
 		{
 			infolist->my_status = 2;
 			PrintError(infolist, "Illegal number: ");
-			errPrintStr(infolist->argument_v[1]);
-			errPrintChar('\n');
+			Printstrer(infolist->argument_v[1]);
+			erprchar('\n');
 			return (1);
 		}
 		infolist->err_code = StringToInteger(infolist->argument_v[1]);
@@ -41,7 +41,7 @@ int ret_dir;
 
 str = getcwd(myBuff, 1024);/*get current working directory.*/
 if (!str)
-	Puts("TODO: >>getcwd failure emsg here<<\n");
+	pts("TODO: >>getcwd failure emsg here<<\n");
 if (!infolist->argument_v[1])
 {
 	directory = getEnv(infolist, "HOME=");
@@ -51,15 +51,15 @@ if (!infolist->argument_v[1])
 	else
 	ret_dir = chdir(directory);
 }
-else if (compareStrings(infolist->argument_v[1], "-") == 0)
+else if (cmpstr(infolist->argument_v[1], "-") == 0)
 {
 	if (!getEnv(infolist, "OLDPWD="))
 	{
-		Puts(str);
-		PutCharacter('\n');
+		pts(str);
+		ptchr('\n');
 		return (1);
 	}
-	Puts(getEnv(infolist, "OLDPWD=")), PutCharacter('\n');
+	pts(getEnv(infolist, "OLDPWD=")), ptchr('\n');
 	ret_dir =
 		chdir((directory = getEnv(infolist, "OLDPWD=")) ? directory : "/");
 }
@@ -68,7 +68,7 @@ else
 if (ret_dir == -1)
 {
 	PrintError(infolist, "can't cd to ");
-	errPrintStr(infolist->argument_v[1]), errPrintChar('\n');
+	Printstrer(infolist->argument_v[1]), erprchar('\n');
 }
 else
 {
@@ -88,9 +88,9 @@ int h_eml(infolist_t *infolist)
 	char **arrayArgument;
 
 	arrayArgument = infolist->argument_v;
-Puts("This is for the help command.but Functionality not implemented yet.\n");
+pts("This is for the help command.but Functionality not implemented yet.\n");
 
 	if (0)
-		Puts(*arrayArgument);
+		pts(*arrayArgument);
 	return (0);
 }

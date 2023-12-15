@@ -23,11 +23,11 @@ char *copyStrings(char *destina, char *source)
 }
 
 /**
- * PutCharacter - ...
+ * ptchr - ...
  * @x: ...
  * Return: ...
  */
-int PutCharacter(char x)
+int ptchr(char x)
 {
 	static int i;
 	static char mybuff[writeBufferSize];
@@ -45,11 +45,11 @@ int PutCharacter(char x)
 }
 
 /**
- * Puts - ...
+ * pts - ...
  * @string: ...
  * Return: ...
  */
-void Puts(char *string)
+void pts(char *string)
 {
 	int i = 0;
 
@@ -58,7 +58,7 @@ void Puts(char *string)
 
 	while (string[i] != '\0')
 	{
-		PutCharacter(string[i]);
+		ptchr(string[i]);
 		i++;
 	}
 }

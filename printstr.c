@@ -2,10 +2,10 @@
 
 
 /**
- * errPrintStr - input
+ * Printstrer - input
  * @string: ...
  */
-void errPrintStr(char *string)
+void Printstrer(char *string)
 {
 	int x = 0;
 
@@ -15,17 +15,17 @@ void errPrintStr(char *string)
 	while (string[x] != '\0')
 	{
 
-		errPrintChar(string[x]);
+		erprchar(string[x]);
 		x++;
 	}
 }
 
 /**
- * errPrintChar - ...
+ * erprchar - ...
  * @ch: print
  * Return: ...
  */
-int errPrintChar(char ch)
+int erprchar(char ch)
 {
 	static int x;
 	static char mybuff[writeBufferSize];
@@ -66,12 +66,12 @@ int WFileDescreptor(char x, int fileDes)
 }
 
 /**
- * charsCount - ...
+ * chcnt - ...
  * @string: ...
  * @fileDes: ...
  * Return: ...
  */
-int charsCount(char *string, int fileDes)
+int chcnt(char *string, int fileDes)
 {
 	int x = 0;
 

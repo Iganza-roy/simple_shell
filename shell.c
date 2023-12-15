@@ -25,11 +25,11 @@ int main(int argument_coun, char **argument_v)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				errPrintStr(argument_v[0]);
-				errPrintStr(": 0: Can't open that file ");
-				errPrintStr(argument_v[1]);
-				errPrintChar('\n');
-				errPrintChar(bufferFlush);/*-1*/
+				Printstrer(argument_v[0]);
+				Printstrer(": 0: Can't open that file ");
+				Printstrer(argument_v[1]);
+				erprchar('\n');
+				erprchar(bufferFlush);/*-1*/
 				exit(127);
 			}
 			return (EXIT_FAILURE);
@@ -39,6 +39,6 @@ int main(int argument_coun, char **argument_v)
 
 	_envlist_pop(infolist);
 	his_r(infolist);
-	shellLoob(infolist, argument_v);
+	SL(infolist, argument_v);
 	return (EXIT_SUCCESS);
 }
