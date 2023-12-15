@@ -13,7 +13,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <stddef.h>
-#include <signal.h> 
+#include <signal.h>
 
 #define useGetLine 0
 #define cmdNormal 0
