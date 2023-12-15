@@ -107,8 +107,8 @@ char **SplitString(char *string, char *deli)
 		deli = " ";
 
 	for (x = 0; string[x] != '\0'; x++)
-		if (!IsDelimeter(string[x], deli) &&
-		(IsDelimeter(string[x + 1], deli) || !string[x + 1]))
+		if (!_isdelim(string[x], deli) &&
+		(_isdelim(string[x + 1], deli) || !string[x + 1]))
 			n++;
 	if (n == 0)
 		return (NULL);
@@ -117,10 +117,10 @@ char **SplitString(char *string, char *deli)
 		return (NULL);
 	for (x = 0, y = 0; y < n; y++)
 	{
-		while (IsDelimeter(string[x], deli))
+		while (_isdelim(string[x], deli))
 			x++;
 		z = 0;
-		while (!IsDelimeter(string[x + z], deli) && string[x + z])
+		while (!_isdelim(string[x + z], deli) && string[x + z])
 			z++;
 		s[y] = malloc((z + 1) * sizeof(char));
 		if (!s[y])

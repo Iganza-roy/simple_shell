@@ -118,6 +118,7 @@ int WFileDescreptor(char c, int fileDes);
 int charsCount(char *string, int fileDes);
 int getStringLength(char *);
 int compareStrings(char *, char *);
+
 char *startsWith(const char *, const char *);
 char *concatenetStrings(char *, char *);
 char *StringCopy(char *, char *, int);
@@ -126,19 +127,25 @@ char *locateChar(char *, char);
 char **SplitString2(char *, char);
 char *copyStrings(char *, char *);
 char *duplcatString(const char *);
+
 void Puts(char *);
+
 int PutCharacter(char);
+
 char **SplitString(char *, char *);
 char *fillMemoryWith(char *, char, unsigned int);
-void freeFun(char **);
+
+void free_func(char **);
+
 void *reAllocat(void *, unsigned int, unsigned int);
-int freePointers(void **);
-int IsInteractive(infolist_t *);
-int IsDelimeter(char, char *);
-int ISAlphabetic(int);
-int StrToInt(char *);
-int StringToInteger(char *);
-void PrintError(infolist_t *, char *);
+
+int free_ptrs(void **);
+int _isinter(infolist_t *);
+int _isdelim(char, char *);
+int _isalpha(int);
+int str_int(char *);
+int str_to_int(char *);
+void _errpr(infolist_t *, char *);
 
 int des_pr(int, int);
 

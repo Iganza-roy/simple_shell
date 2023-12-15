@@ -1,22 +1,22 @@
 #include "shell.h"
 
 /**
- * IsInteractive - ...
+ * _isinter - ...
  * @infolist: ...
  * Return: ...
  */
-int IsInteractive(infolist_t *infolist)
+int _isinter(infolist_t *infolist)
 {
 	return (isatty(STDIN_FILENO) && infolist->rfd <= 2);
 }
 
 /**
- * IsDelimeter - ...
+ * _isdelim - ...
  * @chr_ch: ...
  * @dlmtr_str: ...
  * Return: ...
  */
-int IsDelimeter(char chr_ch, char *dlmtr_str)
+int _isdelim(char chr_ch, char *dlmtr_str)
 {
 	while (*dlmtr_str)
 		if (*dlmtr_str++ == chr_ch)
@@ -25,11 +25,11 @@ int IsDelimeter(char chr_ch, char *dlmtr_str)
 }
 
 /**
- * ISAlphabetic - ...
+ * _isalpha - ...
  * @chr_in: ...
  * Return: ...
  */
-int ISAlphabetic(int chr_in)
+int _isalpha(int chr_in)
 {
 	if ((chr_in >= 'a' && chr_in <= 'z') || (chr_in >= 'A' && chr_in <= 'Z'))
 		return (1);
@@ -38,12 +38,12 @@ int ISAlphabetic(int chr_in)
 }
 
 /**
- * StrToInt - ...
+ * str_int - ...
  * @str:...
  * Return: int val
  */
 
-int StrToInt(char *str)
+int str_int(char *str)
 {
 	int i, my_sign = 1, my_flag = 0, my_output;
 	unsigned int result = 0;

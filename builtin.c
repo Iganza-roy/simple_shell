@@ -11,17 +11,17 @@ int ex_eml(infolist_t *infolist)
 
 	if (infolist->argument_v[1])
 	{
-		checkExit = StringToInteger(infolist->argument_v[1]);
+		checkExit = str_to_int(infolist->argument_v[1]);
 
 		if (checkExit == -1)
 		{
 			infolist->my_status = 2;
-			PrintError(infolist, "Illegal number: ");
+			_errpr(infolist, "Illegal number: ");
 			errPrintStr(infolist->argument_v[1]);
 			errPrintChar('\n');
 			return (1);
 		}
-		infolist->err_code = StringToInteger(infolist->argument_v[1]);
+		infolist->err_code = str_to_int(infolist->argument_v[1]);
 		return (-2);
 	}
 
@@ -67,7 +67,7 @@ else
 	ret_dir = chdir(infolist->argument_v[1]);
 if (ret_dir == -1)
 {
-	PrintError(infolist, "can't cd to ");
+	_errpr(infolist, "can't cd to ");
 	errPrintStr(infolist->argument_v[1]), errPrintChar('\n');
 }
 else

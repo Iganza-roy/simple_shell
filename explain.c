@@ -53,7 +53,7 @@ void info_set(infolist_t *infolist, char **arg_vec)
  */
 void info_free(infolist_t *infolist, int alllist)
 {
-	freeFun(infolist->argument_v);
+	free_func(infolist->argument_v);
 	infolist->argument_v = NULL;
 
 	infolist->str_path = NULL;
@@ -72,10 +72,10 @@ void info_free(infolist_t *infolist, int alllist)
 		if (infolist->my_alias)
 			_listfree(&(infolist->my_alias));
 
-		freeFun(infolist->environ);
+		free_func(infolist->environ);
 			infolist->environ = NULL;
 
-		freePointers((void **)infolist->cmdBuffer);
+		free_ptrs((void **)infolist->cmdBuffer);
 		if (infolist->rfd > 2)
 			close(infolist->rfd);
 

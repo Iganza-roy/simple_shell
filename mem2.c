@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * freePointers - ...
+ * free_ptrs - ...
  * @Pointer: ...
  * Return: 0 on success
  */
-int freePointers(void **Pointer)
+int free_ptrs(void **Pointer)
 {
 	if (Pointer && *Pointer)
 	{

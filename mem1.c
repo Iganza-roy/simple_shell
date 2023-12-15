@@ -17,10 +17,10 @@ char *fillMemoryWith(char *a, char s, unsigned int x)
 }
 
 /**
- * freeFun - ...
+ * free_func - ...
  * @ss: ...
  */
-void freeFun(char **ss)
+void free_func(char **ss)
 {
 	char **x = ss;
 

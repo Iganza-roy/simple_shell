@@ -15,7 +15,7 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 	{
 		info_clear(infolist);
 
-		if (IsInteractive(infolist))
+		if (_isinter(infolist))
 			Puts("$ ");
 		errPrintChar(bufferFlush);
 		x = _get_in(infolist);
@@ -28,13 +28,13 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 			if (result == -1)
 				cheackPasses(infolist);
 		}
-		else if (IsInteractive(infolist))
+		else if (_isinter(infolist))
 			PutCharacter('\n');
 		info_free(infolist, 0);
 	}
 	his_wr(infolist);
 	info_free(infolist, 1);
-	if (!IsInteractive(infolist) && infolist->my_status)
+	if (!_isinter(infolist) && infolist->my_status)
 		exit(infolist->my_status);
 	if (result == -2)
 	{
@@ -93,7 +93,7 @@ void cheackPasses(infolist_t *infolist)
 		infolist->linenumflag = 0;
 	}
 	for (x = 0, y = 0; infolist->argument[x]; x++)
-		if (!IsDelimeter(infolist->argument[x], " \t\n"))
+		if (!_isdelim(infolist->argument[x], " \t\n"))
 			y++;
 	if (!y)
 		return;
@@ -107,14 +107,14 @@ void cheackPasses(infolist_t *infolist)
 	}
 	else
 	{
-		if ((IsInteractive(infolist) || getEnv(infolist, "PATH=")
+		if ((_isinter(infolist) || getEnv(infolist, "PATH=")
 			|| infolist->argument_v[0][0] == '/') &&
 			isCMD(infolist, infolist->argument_v[0]))
 			forkThread(infolist);
 		else if (*(infolist->argument) != '\n')
 		{
 			infolist->my_status = 127;
-			PrintError(infolist, "not found\n");
+			_errpr(infolist, "not found\n");
 		}
 	}
 }
@@ -153,7 +153,7 @@ void forkThread(infolist_t *infolist)
 			infolist->my_status = WEXITSTATUS(infolist->my_status);
 
 			if (infolist->my_status == 126)
-				PrintError(infolist, "Permission denied\n");
+				_errpr(infolist, "Permission denied\n");
 		}
 	}
 }
