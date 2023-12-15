@@ -3,6 +3,7 @@
 /**
  * freePointers - ...
  * @Pointer: ...
+ * Return: 0 on success
  */
 int freePointers(void **Pointer)
 {
