@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * getStringLength - str len
+ * strl - str len
  * @str_ch: ...
  * Return: ...
  */
-int getStringLength(char *str_ch)
+int strl(char *str_ch)
 {
 	int length = 0;
 
@@ -18,12 +18,12 @@ int getStringLength(char *str_ch)
 }
 
 /**
- * compareStrings - ...
+ * cmpstr - ...
  * @strone: ...
  * @strtwo: ...
  * Return: ...
  */
-int compareStrings(char *strone, char *strtwo)
+int cmpstr(char *strone, char *strtwo)
 {
 	while (*strone && *strtwo)
 	{

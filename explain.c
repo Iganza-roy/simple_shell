@@ -79,6 +79,6 @@ void info_free(infolist_t *infolist, int alllist)
 		if (infolist->rfd > 2)
 			close(infolist->rfd);
 
-		PutCharacter(bufferFlush);
+		ptchr(bufferFlush);
 	}
 }

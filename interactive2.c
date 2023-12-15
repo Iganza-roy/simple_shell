@@ -37,13 +37,13 @@ int str_to_int(char *str)
  */
 void _errpr(infolist_t *infolist, char *emst)
 {
-	errPrintStr(infolist->filename);
-	errPrintStr(": ");
+	Printstrer(infolist->filename);
+	Printstrer(": ");
 	des_pr(infolist->err_line_num, STDERR_FILENO);
-	errPrintStr(": ");
-	errPrintStr(infolist->argument_v[0]);
-	errPrintStr(": ");
-	errPrintStr(emst);
+	Printstrer(": ");
+	Printstrer(infolist->argument_v[0]);
+	Printstrer(": ");
+	Printstrer(emst);
 }
 
 /**
@@ -54,12 +54,12 @@ void _errpr(infolist_t *infolist, char *emst)
  */
 int des_pr(int int_put, int fileDes)
 {
-	int (*put_chr)(char) = PutCharacter;
+	int (*put_chr)(char) = ptchr;
 	int iter, num = 0;
 	unsigned int ABS, curdir;
 
 	if (fileDes == STDERR_FILENO)
-		put_chr = errPrintChar;
+		put_chr = erprchar;
 
 	if (int_put < 0)
 	{

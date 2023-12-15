@@ -63,7 +63,7 @@ int _envvarinit(infolist_t *infolist, char *var_prop, char *var_value)
 	if (!var_prop || !var_value)
 		return (0);
 
-	mybuff = malloc(getStringLength(var_prop) + getStringLength(var_value) + 2);
+	mybuff = malloc(strl(var_prop) + strl(var_value) + 2);
 	if (!mybuff)
 		return (1);
 

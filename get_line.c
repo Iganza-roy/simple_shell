@@ -53,7 +53,7 @@ ssize_t _get_in(infolist_t *infolist)
 	ssize_t x = 0;
 	char **p_beff = &(infolist->argument), *p;
 
-	PutCharacter(bufferFlush);
+	ptchr(bufferFlush);
 	x = inputBuffer(infolist, &mybuff, &mylen);
 	if (x == -1)
 		return (-1);
@@ -78,7 +78,7 @@ ssize_t _get_in(infolist_t *infolist)
 		}
 
 		*p_beff = p;
-		return (getStringLength(p));
+		return (strl(p));
 	}
 
 	*p_beff = mybuff;
@@ -161,8 +161,8 @@ int get_nl(infolist_t *infolist, char **stoline, size_t *bufsize)
  */
 void h_sig(__attribute__((unused))int sig_num)
 {
-	Puts("\n");
-	Puts("$ ");
-	PutCharacter(bufferFlush);
+	pts("\n");
+	pts("$ ");
+	ptchr(bufferFlush);
 
 }

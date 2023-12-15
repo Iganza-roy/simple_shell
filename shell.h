@@ -105,20 +105,26 @@ typedef struct Builtin_Comands
 	int (*function)(infolist_t *);
 } stracOfBuildIn;
 
-int shellLoob(infolist_t *, char **);
+int SL(infolist_t *, char **);
 int findBuiltinCom(infolist_t *);
-void cheackPasses(infolist_t *);
-void forkThread(infolist_t *);
-int isCMD(infolist_t *, char *);
-char *duplCharacters(char *, int, int);
-char *findPath(infolist_t *, char *, char *);
-void errPrintStr(char *);
-int errPrintChar(char);
+void chkps(infolist_t *);
+void fkthrd(infolist_t *);
+int iscommand(infolist_t *, char *);
+char *cpchar(char *, int, int);
+char *fpth(infolist_t *, char *, char *);
+void Printstrer(char *);
+int erprchar(char);
 int WFileDescreptor(char c, int fileDes);
+<<<<<<< HEAD
 int charsCount(char *string, int fileDes);
 int getStringLength(char *);
 int compareStrings(char *, char *);
 
+=======
+int chcnt(char *string, int fileDes);
+int strl(char *);
+int cmpstr(char *, char *);
+>>>>>>> ce8ad8bdd0dffac4a2da261f41ca5ba9c1ab5ac2
 char *startsWith(const char *, const char *);
 char *concatenetStrings(char *, char *);
 char *StringCopy(char *, char *, int);
@@ -127,11 +133,16 @@ char *locateChar(char *, char);
 char **SplitString2(char *, char);
 char *copyStrings(char *, char *);
 char *duplcatString(const char *);
+<<<<<<< HEAD
 
 void Puts(char *);
 
 int PutCharacter(char);
 
+=======
+void pts(char *);
+int ptchr(char);
+>>>>>>> ce8ad8bdd0dffac4a2da261f41ca5ba9c1ab5ac2
 char **SplitString(char *, char *);
 char *fillMemoryWith(char *, char, unsigned int);
 

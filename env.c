@@ -42,7 +42,7 @@ int _set_env(infolist_t *infolist)
 {
 	if (infolist->argument_c != 3)
 	{
-		errPrintStr("Few args\n");
+		Printstrer("Few args\n");
 		return (1);
 	}
 	if (_envvarinit(infolist, infolist->argument_v[1],
@@ -62,7 +62,7 @@ int _unset_env(infolist_t *infolist)
 
 	if (infolist->argument_c == 1)
 	{
-		errPrintStr("one arg\n");
+		Printstrer("one arg\n");
 		return (1);
 	}
 

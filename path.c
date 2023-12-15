@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * isCMD - ....
+ * iscommand - ....
  * @infolist: ...
  * @str_path: ...
  * Return: integer
  */
-int isCMD(infolist_t *infolist, char *str_path)
+int iscommand(infolist_t *infolist, char *str_path)
 {
 	struct stat fileStat;
 
@@ -23,13 +23,13 @@ int isCMD(infolist_t *infolist, char *str_path)
 }
 
 /**
- * duplCharacters - ...
+ * cpchar - ...
  * @patheString: ...
  * @startIndex: ...
  * @stopIndex: ...
  * Return: ...
  */
-char *duplCharacters(char *patheString, int startIndex, int stopIndex)
+char *cpchar(char *patheString, int startIndex, int stopIndex)
 {
 	static char staBuff[1024];
 	int y = 0, x = 0;
@@ -44,13 +44,13 @@ char *duplCharacters(char *patheString, int startIndex, int stopIndex)
 }
 
 /**
- * findPath - ...
+ * fpth - ...
  * @infolist: ...
  * @patheString: ...
  * @CMD: ...
  * Return: ...
  */
-char *findPath(infolist_t *infolist, char *patheString, char *CMD)
+char *fpth(infolist_t *infolist, char *patheString, char *CMD)
 {
 	int x = 0, currentPos = 0;
 	char *str_path;
@@ -58,9 +58,9 @@ char *findPath(infolist_t *infolist, char *patheString, char *CMD)
 	if (!patheString)
 		return (NULL);
 
-	if ((getStringLength(CMD) > 2) && startsWith(CMD, "./"))
+	if ((strl(CMD) > 2) && startsWith(CMD, "./"))
 	{
-		if (isCMD(infolist, CMD))
+		if (iscommand(infolist, CMD))
 			return (CMD);
 	}
 
@@ -68,7 +68,7 @@ char *findPath(infolist_t *infolist, char *patheString, char *CMD)
 	{
 		if (!patheString[x] || patheString[x] == ':')
 		{
-			str_path = duplCharacters(patheString, currentPos, x);
+			str_path = cpchar(patheString, currentPos, x);
 
 			if (!*str_path)
 				concatenetStrings(str_path, CMD);
@@ -78,7 +78,7 @@ char *findPath(infolist_t *infolist, char *patheString, char *CMD)
 				concatenetStrings(str_path, CMD);
 			}
 
-			if (isCMD(infolist, str_path))
+			if (iscommand(infolist, str_path))
 				return (str_path);
 
 			if (!patheString[x])
