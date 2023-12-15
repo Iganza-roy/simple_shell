@@ -39,7 +39,7 @@ int ISAlphabetic(int chr_in)
 
 /**
  * StrToInt - ...
- * @str: 
+ * @str:...
  * Return: int val
  */
 

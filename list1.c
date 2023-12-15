@@ -58,7 +58,7 @@ stringlist_t *ADDnodeEn(stringlist_t **firstNode,
 	newNode = malloc(sizeof(stringlist_t));
 	if (!newNode)
 		return (NULL);
-	
+
 	fillMemoryWith((void *)newNode, 0, sizeof(stringlist_t));
 
 	newNode->number = number;

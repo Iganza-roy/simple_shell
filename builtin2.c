@@ -92,6 +92,7 @@ int aliasEmulator(infolist_t *infolist)
 	char *ptr = NULL;
 	int x = 0;
 	stringlist_t *my_node = NULL;
+
 	if (infolist->argument_c == 1)
 	{
 		my_node = infolist->my_alias;
