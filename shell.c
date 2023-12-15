@@ -37,8 +37,8 @@ int main(int argument_coun, char **argument_v)
 		infolist->rfd = fileDes;
 	}
 
-	populateEnvList(infolist);
-	r_history(infolist);
+	_envlist_pop(infolist);
+	his_r(infolist);
 	shellLoob(infolist, argument_v);
 	return (EXIT_SUCCESS);
 }

@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * exitEmulator - ...
+ * ex_eml - ...
  * @infolist: ...
  * Return: ...
  */
-int exitEmulator(infolist_t *infolist)
+int ex_eml(infolist_t *infolist)
 {
 	int checkExit;
 
@@ -30,11 +30,11 @@ int exitEmulator(infolist_t *infolist)
 }
 
 /**
- * cdEmulator - ...
+ * cd_eml - ...
  * @infolist: ...
  *  Return: ...
  */
-int cdEmulator(infolist_t *infolist)
+int cd_eml(infolist_t *infolist)
 {
 char *str, *directory, myBuff[1024];
 int ret_dir;
@@ -72,18 +72,18 @@ if (ret_dir == -1)
 }
 else
 {
-	init_env_var(infolist, "OLDPWD", getEnv(infolist, "PWD="));
-	init_env_var(infolist, "PWD", getcwd(myBuff, 1024));
+	_envvarinit(infolist, "OLDPWD", getEnv(infolist, "PWD="));
+	_envvarinit(infolist, "PWD", getcwd(myBuff, 1024));
 }
 return (0);
 }
 
 /**
- * helpEmulator - ...
+ * h_eml - ...
  * @infolist: ...
  * Return: ...
  */
-int helpEmulator(infolist_t *infolist)
+int h_eml(infolist_t *infolist)
 {
 	char **arrayArgument;
 

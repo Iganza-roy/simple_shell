@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * historyEmulator - ...
+ * his_eml - ...
  * @infolist: ...
  * Return: ...
  */
-int historyEmulator(infolist_t *infolist)
+int his_eml(infolist_t *infolist)
 {
-	elementList(infolist->my_history);
+	_elelist(infolist->my_history);
 	return (0);
 }
 
@@ -29,8 +29,8 @@ int removeAlias(infolist_t *infolist, char *string)
 	chr = *ptr;
 	*ptr = 0;
 
-	restr = deletNode(&(infolist->my_alias),
-		nodeIndex(infolist->my_alias,
+	restr = node_del(&(infolist->my_alias),
+		node_index(infolist->my_alias,
 		nodeStartWith(infolist->my_alias, string, -1)));
 
 	*ptr = chr;
@@ -83,11 +83,11 @@ int prtAlias(stringlist_t *my_node)
 }
 
 /**
- * aliasEmulator - ...
+ * al_eml - ...
  * @infolist: ...
  * Return: ...
  */
-int aliasEmulator(infolist_t *infolist)
+int al_eml(infolist_t *infolist)
 {
 	char *ptr = NULL;
 	int x = 0;

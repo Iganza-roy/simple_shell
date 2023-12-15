@@ -13,15 +13,15 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 
 	while (x != -1 && result != -2)
 	{
-		clearInformation(infolist);
+		info_clear(infolist);
 
 		if (IsInteractive(infolist))
 			Puts("$ ");
 		errPrintChar(bufferFlush);
-		x = getInput(infolist);
+		x = _get_in(infolist);
 		if (x != -1)
 		{
-			setInformation(infolist, argument_v);
+			info_set(infolist, argument_v);
 
 			result = findBuiltinCom(infolist);
 
@@ -30,10 +30,10 @@ int shellLoob(infolist_t *infolist, char **argument_v)
 		}
 		else if (IsInteractive(infolist))
 			PutCharacter('\n');
-		freeInformation(infolist, 0);
+		info_free(infolist, 0);
 	}
-	w_history(infolist);
-	freeInformation(infolist, 1);
+	his_wr(infolist);
+	info_free(infolist, 1);
 	if (!IsInteractive(infolist) && infolist->my_status)
 		exit(infolist->my_status);
 	if (result == -2)
@@ -55,14 +55,14 @@ int findBuiltinCom(infolist_t *infolist)
 	int x, builtInRet = -1;
 
 	stracOfBuildIn builtInTabl[] = {
-		{"exit", exitEmulator},
-		{"env", my_env},
-		{"help", helpEmulator},
-		{"history", historyEmulator},
-		{"setenv", mySetEnv},
-		{"unsetenv", unSetEnv},
-		{"cd", cdEmulator},
-		{"alias", aliasEmulator},
+		{"exit", ex_eml},
+		{"env", _env_mine},
+		{"help", h_eml},
+		{"history", his_eml},
+		{"setenv", _set_env},
+		{"unsetenv", _unset_env},
+		{"cd", cd_eml},
+		{"alias", al_eml},
 		{NULL, NULL}
 	};
 
@@ -138,7 +138,7 @@ void forkThread(infolist_t *infolist)
 		if (execve(infolist->str_path, infolist->argument_v,
 		our_environ(infolist)) == -1)
 		{
-			freeInformation(infolist, 1);
+			info_free(infolist, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);

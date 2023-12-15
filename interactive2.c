@@ -39,7 +39,7 @@ void PrintError(infolist_t *infolist, char *emst)
 {
 	errPrintStr(infolist->filename);
 	errPrintStr(": ");
-	printDescriptor(infolist->err_line_num, STDERR_FILENO);
+	des_pr(infolist->err_line_num, STDERR_FILENO);
 	errPrintStr(": ");
 	errPrintStr(infolist->argument_v[0]);
 	errPrintStr(": ");
@@ -47,12 +47,12 @@ void PrintError(infolist_t *infolist, char *emst)
 }
 
 /**
- * printDescriptor - ...
+ * des_pr - ...
  * @int_put: ...
  * @fileDes: ...
  * Return: ...
  */
-int printDescriptor(int int_put, int fileDes)
+int des_pr(int int_put, int fileDes)
 {
 	int (*put_chr)(char) = PutCharacter;
 	int iter, num = 0;
@@ -126,11 +126,11 @@ my_array = (my_flags & lowerCaseConverter) ?
 }
 
 /**
- * re_comm - ...
+ * re_co - ...
  * @mybuff: ...
  * Return: 0 on success
  */
-void re_comm(char *mybuff)
+void re_co(char *mybuff)
 {
 	int x;
 

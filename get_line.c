@@ -16,11 +16,11 @@ ssize_t inputBuffer(infolist_t *infolist, char **mybuff, size_t *mylen)
 	{
 		free(*mybuff);
 		*mybuff = NULL;
-		signal(SIGINT, hamdelSigin);
+		signal(SIGINT, h_sig);
 #if useGetLine/* extract from getline */
 		x = getline(mybuff, &p_lenth, stdin);/*from <stdio>*/
 #else/* read from stdin */
-		x = getNextLine(infolist, mybuff, &p_lenth);
+		x = get_nl(infolist, mybuff, &p_lenth);
 #endif
 		if (x > 0)
 		{
@@ -30,8 +30,8 @@ ssize_t inputBuffer(infolist_t *infolist, char **mybuff, size_t *mylen)
 				x--;
 			}
 			infolist->linenumflag = 1;
-			re_comm(*mybuff);
-			buildHistoryList(infolist, *mybuff, infolist->histnum++);
+			re_co(*mybuff);
+			his_listb(infolist, *mybuff, infolist->histnum++);
 			{
 				*mylen = x;
 				infolist->cmdBuffer = mybuff;
@@ -42,11 +42,11 @@ ssize_t inputBuffer(infolist_t *infolist, char **mybuff, size_t *mylen)
 }
 
 /**
- * getInput - ...
+ * _get_in - ...
  * @infolist: ...
  * Return: ...
  */
-ssize_t getInput(infolist_t *infolist)
+ssize_t _get_in(infolist_t *infolist)
 {
 	static char *mybuff;
 	static size_t iter, y, mylen;
@@ -62,10 +62,10 @@ ssize_t getInput(infolist_t *infolist)
 		y = iter;
 		p = mybuff + iter;
 
-		checkChain(infolist, mybuff, &y, iter, mylen);
+		_chainchecker(infolist, mybuff, &y, iter, mylen);
 		while (y < mylen)
 		{
-			if (isChain(infolist, mybuff, &y))
+			if (_chainme(infolist, mybuff, &y))
 				break;
 			y++;
 		}
@@ -107,13 +107,13 @@ ssize_t readBuffer(infolist_t *infolist, char *mybuff, size_t *iter)
 }
 
 /**
- * getNextLine - ...
+ * get_nl - ...
  * @infolist: ...
  * @stoline: ...
  * @bufsize: ...
  * Return: ...
  */
-int getNextLine(infolist_t *infolist, char **stoline, size_t *bufsize)
+int get_nl(infolist_t *infolist, char **stoline, size_t *bufsize)
 {
 	static char mybuff[readBufferSize];
 	static size_t iter, mylen;
@@ -156,10 +156,10 @@ int getNextLine(infolist_t *infolist, char **stoline, size_t *bufsize)
 }
 
 /**
- * hamdelSigin - ...
+ * h_sig - ...
  * @sig_num: ...
  */
-void hamdelSigin(__attribute__((unused))int sig_num)
+void h_sig(__attribute__((unused))int sig_num)
 {
 	Puts("\n");
 	Puts("$ ");

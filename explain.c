@@ -2,10 +2,10 @@
 
 
 /**
- * clearInformation - ...
+ * info_clear - ...
  * @infolist: ...
  */
-void clearInformation(infolist_t *infolist)
+void info_clear(infolist_t *infolist)
 {
 	infolist->argument = NULL;
 	infolist->argument_v = NULL;
@@ -14,11 +14,11 @@ void clearInformation(infolist_t *infolist)
 }
 
 /**
- * setInformation - ...
+ * info_set - ...
  * @infolist: ...
  * @arg_vec: ...
  */
-void setInformation(infolist_t *infolist, char **arg_vec)
+void info_set(infolist_t *infolist, char **arg_vec)
 {
 	int x = 0;
 
@@ -41,17 +41,17 @@ void setInformation(infolist_t *infolist, char **arg_vec)
 			;
 		infolist->argument_c = x;
 
-		replaceAlies(infolist);
-		replaVars(infolist);
+		_aliesrep(infolist);
+		_varreps(infolist);
 	}
 }
 
 /**
- * freeInformation - ...
+ * info_free - ...
  * @infolist: ...
  * @alllist: ...
  */
-void freeInformation(infolist_t *infolist, int alllist)
+void info_free(infolist_t *infolist, int alllist)
 {
 	freeFun(infolist->argument_v);
 	infolist->argument_v = NULL;
@@ -64,13 +64,13 @@ void freeInformation(infolist_t *infolist, int alllist)
 			free(infolist->argument);
 
 		if (infolist->envir)
-			freeList(&(infolist->envir));
+			_listfree(&(infolist->envir));
 
 		if (infolist->my_history)
-			freeList(&(infolist->my_history));
+			_listfree(&(infolist->my_history));
 
 		if (infolist->my_alias)
-			freeList(&(infolist->my_alias));
+			_listfree(&(infolist->my_alias));
 
 		freeFun(infolist->environ);
 			infolist->environ = NULL;

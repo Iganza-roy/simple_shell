@@ -17,12 +17,12 @@ char **our_environ(infolist_t *infolist)
 }
 
 /**
- * remov_environ - ...
+ * _environ_rem - ...
  * @infolist: ...
  * @var_prop: ...
  * Return: ...
  */
-int remov_environ(infolist_t *infolist, char *var_prop)
+int _environ_rem(infolist_t *infolist, char *var_prop)
 {
 	stringlist_t *my_node = infolist->envir;
 	size_t x = 0;
@@ -36,7 +36,7 @@ int remov_environ(infolist_t *infolist, char *var_prop)
 		ptr = startsWith(my_node->string, var_prop);
 		if (ptr && *ptr == '=')
 		{
-			infolist->isenvchange = deletNode(&(infolist->envir), x);
+			infolist->isenvchange = node_del(&(infolist->envir), x);
 			x = 0;
 			my_node = infolist->envir;
 			continue;
@@ -48,13 +48,13 @@ int remov_environ(infolist_t *infolist, char *var_prop)
 }
 
 /**
- * init_env_var - ...
+ * _envvarinit - ...
  * @infolist: ...
  * @var_prop: ...
  * @var_value: ...
  * Return: ...
  */
-int init_env_var(infolist_t *infolist, char *var_prop, char *var_value)
+int _envvarinit(infolist_t *infolist, char *var_prop, char *var_value)
 {
 	char *ptr;
 	char *mybuff = NULL;

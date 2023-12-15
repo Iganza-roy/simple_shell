@@ -29,11 +29,11 @@ char *getFileHistory(infolist_t *infolist)
 }
 
 /**
- * w_history - ...
+ * his_wr - ...
  * @infolist: ...
  * Return: success 0
  */
-int w_history(infolist_t *infolist)
+int his_wr(infolist_t *infolist)
 {
 	ssize_t fileDes;
 	char *file_n = getFileHistory(infolist);
@@ -61,11 +61,11 @@ int w_history(infolist_t *infolist)
 }
 
 /**
- * r_history - ...
+ * his_r - ...
  * @infolist: ...
  * Return: ...
  */
-int r_history(infolist_t *infolist)
+int his_r(infolist_t *infolist)
 {
 	int x, end = 0, l_num = 0;
 	ssize_t fileDes, read_l, file_s = 0;
@@ -95,28 +95,28 @@ int r_history(infolist_t *infolist)
 		if (buffer[x] == '\n')
 		{
 			buffer[x] = 0;
-			buildHistoryList(infolist, buffer + end, l_num++);
+			his_listb(infolist, buffer + end, l_num++);
 			end = x + 1;
 		}
 	if (end != x)
-		buildHistoryList(infolist, buffer + end, l_num++);
+		his_listb(infolist, buffer + end, l_num++);
 	free(buffer);
 
 	infolist->histnum = l_num;
 	while (infolist->histnum-- >= maxHistory)
-		deletNode(&(infolist->my_history), 0);
-	renumberHistory(infolist);
+		node_del(&(infolist->my_history), 0);
+	his_renum(infolist);
 	return (infolist->histnum);
 }
 
 /**
- * buildHistoryList - ...
+ * his_listb - ...
  * @infolist: ...
  * @buffer: ...
  * @l_num: ...
  * Return: 0 success
  */
-int buildHistoryList(infolist_t *infolist, char *buffer, int l_num)
+int his_listb(infolist_t *infolist, char *buffer, int l_num)
 {
 	stringlist_t *my_node = NULL;
 
@@ -131,11 +131,11 @@ int buildHistoryList(infolist_t *infolist, char *buffer, int l_num)
 }
 
 /**
- * renumberHistory - ...
+ * his_renum - ...
  * @infolist: ...
  * Return: ...
  */
-int renumberHistory(infolist_t *infolist)
+int his_renum(infolist_t *infolist)
 {
 	stringlist_t *my_node = infolist->my_history;
 	int x = 0;

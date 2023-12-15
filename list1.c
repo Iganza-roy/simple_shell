@@ -86,11 +86,11 @@ stringlist_t *ADDnodeEn(stringlist_t **firstNode,
 }
 
 /**
- * printListString - ...
+ * _strlistpr - ...
  * @head: ...
  * Return: ..
  */
-size_t printListString(const stringlist_t *head)
+size_t _strlistpr(const stringlist_t *head)
 {
 	size_t x = 0;
 
@@ -105,12 +105,12 @@ size_t printListString(const stringlist_t *head)
 }
 
 /**
- * deletNode - ...
+ * node_del - ...
  * @firstNode: ...
  * @nodeindex: ...
  * Return: ...
  */
-int deletNode(stringlist_t **firstNode, unsigned int nodeindex)
+int node_del(stringlist_t **firstNode, unsigned int nodeindex)
 {
 	stringlist_t *currentNode, *previousNode;
 	unsigned int x = 0;
@@ -147,10 +147,10 @@ int deletNode(stringlist_t **firstNode, unsigned int nodeindex)
 }
 
 /**
- * freeList - ...
+ * _listfree - ...
  * @headPointr: ...
  */
-void freeList(stringlist_t **headPointr)
+void _listfree(stringlist_t **headPointr)
 {
 	stringlist_t *currentNode, *nextNode, *firstNode;
 

@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * my_env - ...
+ * _env_mine - ...
  * @infolist: ...
  * Return: ...
  */
-int my_env(infolist_t *infolist)
+int _env_mine(infolist_t *infolist)
 {
-	printListString(infolist->envir);
+	_strlistpr(infolist->envir);
 	return (0);
 }
 
@@ -34,29 +34,29 @@ char *getEnv(infolist_t *infolist, const char *var_name)
 }
 
 /**
- * mySetEnv - ...
+ * _set_env - ...
  * @infolist: ...
  * Return: ...
  */
-int mySetEnv(infolist_t *infolist)
+int _set_env(infolist_t *infolist)
 {
 	if (infolist->argument_c != 3)
 	{
 		errPrintStr("Few args\n");
 		return (1);
 	}
-	if (init_env_var(infolist, infolist->argument_v[1],
+	if (_envvarinit(infolist, infolist->argument_v[1],
 	infolist->argument_v[2]))
 		return (0);
 	return (1);
 }
 
 /**
- * unSetEnv - ...
+ * _unset_env - ...
  * @infolist: ...
  * Return: ...
  */
-int unSetEnv(infolist_t *infolist)
+int _unset_env(infolist_t *infolist)
 {
 	int x;
 
@@ -67,17 +67,17 @@ int unSetEnv(infolist_t *infolist)
 	}
 
 	for (x = 1; x <= infolist->argument_c; x++)
-		remov_environ(infolist, infolist->argument_v[x]);
+		_environ_rem(infolist, infolist->argument_v[x]);
 
 	return (0);
 }
 
 /**
- * populateEnvList - ...
+ * _envlist_pop - ...
  * @infolist: ...
  * Return: ...
  */
-int populateEnvList(infolist_t *infolist)
+int _envlist_pop(infolist_t *infolist)
 {
 	stringlist_t *my_node = NULL;
 	size_t x;

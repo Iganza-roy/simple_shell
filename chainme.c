@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * isChain - ...
+ * _chainme - ...
  * @infolist: ...
  * @mybuff: ...
  * @ptr: ...
  * Return: ...
  */
-int isChain(infolist_t *infolist, char *mybuff, size_t *ptr)
+int _chainme(infolist_t *infolist, char *mybuff, size_t *ptr)
 {
 	size_t z = *ptr;
 
@@ -37,14 +37,14 @@ int isChain(infolist_t *infolist, char *mybuff, size_t *ptr)
 }
 
 /**
- * checkChain - ...
+ * _chainchecker - ...
  * @infolist: ...
  * @mybuff: ...
  * @ptr: ...
  * @x: ...
  * @mylen: ...
  */
-void checkChain(infolist_t *infolist, char *mybuff, size_t *ptr, size_t x,
+void _chainchecker(infolist_t *infolist, char *mybuff, size_t *ptr, size_t x,
 size_t mylen)
 {
 	size_t z = *ptr;
@@ -72,11 +72,11 @@ size_t mylen)
 }
 
 /**
- * replaceAlies - ...
+ * _aliesrep - ...
  * @infolist: ...
  * Return: ...
  */
-int replaceAlies(infolist_t *infolist)
+int _aliesrep(infolist_t *infolist)
 {
 	int x;
 	stringlist_t *my_node;
@@ -105,11 +105,11 @@ int replaceAlies(infolist_t *infolist)
 }
 
 /**
- * replaVars - ...
+ * _varreps - ...
  * @infolist: ...
  * Return: ...
  */
-int replaVars(infolist_t *infolist)
+int _varreps(infolist_t *infolist)
 {
 	int x = 0;
 	stringlist_t *my_node;
@@ -122,14 +122,14 @@ int replaVars(infolist_t *infolist)
 
 	if (!compareStrings(infolist->argument_v[x], "$?"))
 	{
-		replaStr(&(infolist->argument_v[x]),
+		_strrep(&(infolist->argument_v[x]),
 			duplcatString(convert_number(infolist->my_status, 10, 0)));
 		continue;
 	}
 
 	if (!compareStrings(infolist->argument_v[x], "$$"))
 	{
-		replaStr(&(infolist->argument_v[x]),
+		_strrep(&(infolist->argument_v[x]),
 			duplcatString(convert_number(getpid(), 10, 0)));
 		continue;
 	}
@@ -137,24 +137,24 @@ int replaVars(infolist_t *infolist)
 	my_node = nodeStartWith(infolist->envir, &infolist->argument_v[x][1], '=');
 	if (my_node)
 	{
-		replaStr(&(infolist->argument_v[x]),
+		_strrep(&(infolist->argument_v[x]),
 			duplcatString(locateChar(my_node->string, '=') + 1));
 		continue;
 	}
 
-	replaStr(&infolist->argument_v[x], duplcatString(""));
+	_strrep(&infolist->argument_v[x], duplcatString(""));
 
 	}
 	return (0);
 }
 
 /**
- * replaStr - ...
+ * _strrep - ...
  * @_old_str: ...
  * @new_str: ...
  * Return: ...
  */
-int replaStr(char **_old_str, char *new_str)
+int _strrep(char **_old_str, char *new_str)
 {
 	free(*_old_str);
 	*_old_str = new_str;

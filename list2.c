@@ -2,11 +2,11 @@
 
 
 /**
- * listLength - ...
+ * _listlen - ...
  * @x: ..
  * Return: ...
  */
-size_t listLength(const stringlist_t *x)
+size_t _listlen(const stringlist_t *x)
 {
 	size_t j = 0;
 
@@ -26,7 +26,7 @@ size_t listLength(const stringlist_t *x)
 char **listToStrings(stringlist_t *firstNode)
 {
 	stringlist_t *currentNode = firstNode;
-	size_t x = listLength(firstNode), z;
+	size_t x = _listlen(firstNode), z;
 	char **strs;
 	char *string;
 
@@ -57,11 +57,11 @@ char **listToStrings(stringlist_t *firstNode)
 
 
 /**
- * elementList - ...
+ * _elelist - ...
  * @x: ...
  * Return: ...
  */
-size_t elementList(const stringlist_t *x)
+size_t _elelist(const stringlist_t *x)
 {
 	size_t j = 0;
 
@@ -103,12 +103,12 @@ stringlist_t *nodeStartWith(stringlist_t *headNode, char *srchprfx, char chr)
 }
 
 /**
- * nodeIndex - node index
+ * node_index - node index
  * @firstNode: ...
  * @currentNode: ....
  * Return: node
  */
-ssize_t nodeIndex(stringlist_t *firstNode, stringlist_t *currentNode)
+ssize_t node_index(stringlist_t *firstNode, stringlist_t *currentNode)
 {
 	size_t x = 0;
 

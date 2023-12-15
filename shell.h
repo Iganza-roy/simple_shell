@@ -139,48 +139,63 @@ int ISAlphabetic(int);
 int StrToInt(char *);
 int StringToInteger(char *);
 void PrintError(infolist_t *, char *);
-int printDescriptor(int, int);
+
+int des_pr(int, int);
+
 char *convert_number(long int, int, int);
-void re_comm(char *);
-int exitEmulator(infolist_t *);
-int cdEmulator(infolist_t *);
-int helpEmulator(infolist_t *);
-int historyEmulator(infolist_t *);
-int aliasEmulator(infolist_t *);
-ssize_t getInput(infolist_t *);
-int getNextLine(infolist_t *, char **, size_t *);
-void hamdelSigin(int);
-void clearInformation(infolist_t *);
-void setInformation(infolist_t *, char **);
-void freeInformation(infolist_t *, int);
+
+void re_co(char *);
+int ex_eml(infolist_t *);
+int cd_eml(infolist_t *);
+int h_eml(infolist_t *);
+int his_eml(infolist_t *);
+int al_eml(infolist_t *);
+ssize_t _get_in(infolist_t *);
+int get_nl(infolist_t *, char **, size_t *);
+void h_sig(int);
+void info_clear(infolist_t *);
+void info_set(infolist_t *, char **);
+void info_free(infolist_t *, int);
+
 char *getEnv(infolist_t *, const char *);
-int my_env(infolist_t *);
-int mySetEnv(infolist_t *);
-int unSetEnv(infolist_t *);
-int populateEnvList(infolist_t *);
+
+int _env_mine(infolist_t *);
+int _set_env(infolist_t *);
+int _unset_env(infolist_t *);
+int _envlist_pop(infolist_t *);
+
 char **our_environ(infolist_t *);
-int remov_environ(infolist_t *, char *);
-int init_env_var(infolist_t *, char *, char *);
+
+int _environ_rem(infolist_t *, char *);
+int _envvarinit(infolist_t *, char *, char *);
+
 char *getFileHistory(infolist_t *infolist);
-int w_history(infolist_t *infolist);
-int r_history(infolist_t *infolist);
-int buildHistoryList(infolist_t *infolist, char *mybuff, int linecount);
-int renumberHistory(infolist_t *infolist);
+
+int his_wr(infolist_t *infolist);
+int his_r(infolist_t *infolist);
+int his_listb(infolist_t *infolist, char *mybuff, int linecount);
+int his_renum(infolist_t *infolist);
+
 stringlist_t *ADDnode(stringlist_t **, const char *, int);
 stringlist_t *ADDnodeEn(stringlist_t **, const char *, int);
-size_t printListString(const stringlist_t *);
-int deletNode(stringlist_t **, unsigned int);
-void freeList(stringlist_t **);
-size_t listLength(const stringlist_t *);
+
+size_t _strlistpr(const stringlist_t *);
+int node_del(stringlist_t **, unsigned int);
+void _listfree(stringlist_t **);
+size_t _listlen(const stringlist_t *);
+
 char **listToStrings(stringlist_t *);
-size_t elementList(const stringlist_t *);
+
+size_t _elelist(const stringlist_t *);
+
 stringlist_t *nodeStartWith(stringlist_t *, char *, char);
-ssize_t nodeIndex(stringlist_t *, stringlist_t *);
-int isChain(infolist_t *, char *, size_t *);
-void checkChain(infolist_t *, char *, size_t *, size_t, size_t);
-int replaceAlies(infolist_t *);
-int replaVars(infolist_t *);
-int replaStr(char **, char *);
+
+ssize_t node_index(stringlist_t *, stringlist_t *);
+int _chainme(infolist_t *, char *, size_t *);
+void _chainchecker(infolist_t *, char *, size_t *, size_t, size_t);
+int _aliesrep(infolist_t *);
+int _varreps(infolist_t *);
+int _strrep(char **, char *);
 
 
 #endif
