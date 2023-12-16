@@ -67,11 +67,11 @@ size_t _elelist(const stringlist_t *x)
 
 	while (x)
 	{
-		pts(convert_number(x->number, 10, 0));
+		Puts(convert_number(x->number, 10, 0));
 		ptchr(':');
 		ptchr(' ');
-		pts(x->string ? x->string : "(Null)");
-		pts("\n");
+		Puts(x->string ? x->string : "(Null)");
+		Puts("\n");
 		x = x->next_node;
 		j++;
 	}

@@ -45,11 +45,11 @@ int ptchr(char x)
 }
 
 /**
- * pts - ...
+ * Puts - ...
  * @string: ...
  * Return: ...
  */
-void pts(char *string)
+void Puts(char *string)
 {
 	int i = 0;
 

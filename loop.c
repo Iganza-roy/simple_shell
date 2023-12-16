@@ -15,15 +15,10 @@ int SL(infolist_t *infolist, char **argument_v)
 	{
 		info_clear(infolist);
 
-<<<<<<< HEAD
 		if (_isinter(infolist))
 			Puts("$ ");
-		errPrintChar(bufferFlush);
-=======
-		if (IsInteractive(infolist))
-			pts("$ ");
 		erprchar(bufferFlush);
->>>>>>> ce8ad8bdd0dffac4a2da261f41ca5ba9c1ab5ac2
+
 		x = _get_in(infolist);
 		if (x != -1)
 		{
@@ -34,13 +29,10 @@ int SL(infolist_t *infolist, char **argument_v)
 			if (result == -1)
 				chkps(infolist);
 		}
-<<<<<<< HEAD
+
 		else if (_isinter(infolist))
-			PutCharacter('\n');
-=======
-		else if (IsInteractive(infolist))
 			ptchr('\n');
->>>>>>> ce8ad8bdd0dffac4a2da261f41ca5ba9c1ab5ac2
+
 		info_free(infolist, 0);
 	}
 	his_wr(infolist);

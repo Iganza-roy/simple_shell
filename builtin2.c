@@ -75,8 +75,8 @@ int prtAlias(stringlist_t *my_node)
 			ptchr(*m);
 
 		ptchr('\'');
-		pts(ptr + 1);
-		pts("'\n");
+		Puts(ptr + 1);
+		Puts("'\n");
 		return (0);
 	}
 	return (1);

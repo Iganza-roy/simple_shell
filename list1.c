@@ -96,8 +96,8 @@ size_t _strlistpr(const stringlist_t *head)
 
 	while (head)
 	{
-		pts(head->string ? head->string : "(Null)");
-		pts("\n");
+		Puts(head->string ? head->string : "(Null)");
+		Puts("\n");
 		head = head->next_node;
 		x++;
 	}

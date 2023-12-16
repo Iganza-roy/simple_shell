@@ -161,8 +161,8 @@ int get_nl(infolist_t *infolist, char **stoline, size_t *bufsize)
  */
 void h_sig(__attribute__((unused))int sig_num)
 {
-	pts("\n");
-	pts("$ ");
+	Puts("\n");
+	Puts("$ ");
 	ptchr(bufferFlush);
 
 }
