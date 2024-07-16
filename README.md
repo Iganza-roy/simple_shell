@@ -20,6 +20,18 @@ To run this project, you need to have the following installed on your system:
 
 - [GCC (GNU Compiler Collection)](https://www.google.com/url?sa=t&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjSi7HAnKyHAxUg1gIHHSbSDYoQFnoECBIQAQ&url=https%3A%2F%2Fgcc.gnu.org%2F&usg=AOvVaw0iLIfr-OYfeQ6NG1BlcrY1&opi=89978449)
 
+## Installation
+1. Fork the repository
+
+Fork the repository to your own GitHub account and clone it to your local machine using the following commands:
+```sh
+git clone https://github.com/your-username/simlpe_shell.git
+cd simple_shell
+```
+
+
+
+
 ## Acknowledgements
 
  - [ALX-AFRICA](https://intranet.alxswe.com/projects/235)
