@@ -1,4 +1,4 @@
-<div style="center">
+<div align="center">
 
  ![Logo](https://th.bing.com/th/id/OIP.SO9JBWHuCM1X4fsTJHzVaQHaFH?pid=ImgDet&w=136&h=136&c=7&dpr=1.7)
 # SIMPLE_SHELL
