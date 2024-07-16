@@ -37,7 +37,29 @@ Compile the code
 gcc -o shs *.c
 ```
 
+### Usage
+1. Run the shell
 
+Execute the shell by running the following command in your terminal:
+
+```sh
+./shs
+```
+
+2. Interact with the shell
+
+- The shell will display a prompt and wait for your input.
+- Type a command and press Enter.
+- The shell will execute the command and display the prompt again.
+
+## Example
+```sh
+roy@ubuntu:~/shell$ ./shs
+$ ls
+$ pwd
+$ echo "Hello, World!"
+$ exit
+```
 
 
 ## Acknowledgements
