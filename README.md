@@ -29,6 +29,14 @@ git clone https://github.com/your-username/simlpe_shell.git
 cd simple_shell
 ```
 
+Compile the code
+
+2. Use GCC to compile the code:
+
+```sh
+gcc -o shs *.c
+```
+
 
 
 
