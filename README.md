@@ -61,12 +61,13 @@ $ echo "Hello, World!"
 $ exit
 ```
 
+## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code follows the project's coding guidelines.
+
 
 ## Acknowledgements
-
- - [ALX-AFRICA](https://intranet.alxswe.com/projects/235)
-
-
+- Thanks to [ALX-AFRICA](https://www.alxafrica.com/), instructors and mentors for their guidance.
+- Inspired by the basic shell functionality of Unix-based systems.
 
 ## Contributing
 
@@ -80,6 +81,8 @@ Please adhere to this project's `code of conduct`.
 - [@lumasia07](https://www.github.com/lumasia07)
 - [@Iganza-roy](https://www.github.com/@Iganza-roy)
 
+<div>
+ 
+</div>
 
-![Logo](https://styles.redditmedia.com/t5_7us75p/styles/communityIcon_c83tdzthwjfa1.png)
 
