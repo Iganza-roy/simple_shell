@@ -15,6 +15,11 @@ This project is a custom shell built in C. The shell displays a prompt, waits fo
 - Handles errors gracefully
 - Built in C for performance and efficiency
 
+## Prerequisites
+To run this project, you need to have the following installed on your system:
+
+- [GCC (GNU Compiler Collection)](https://www.google.com/url?sa=t&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjSi7HAnKyHAxUg1gIHHSbSDYoQFnoECBIQAQ&url=https%3A%2F%2Fgcc.gnu.org%2F&usg=AOvVaw0iLIfr-OYfeQ6NG1BlcrY1&opi=89978449)
+
 ## Acknowledgements
 
  - [ALX-AFRICA](https://intranet.alxswe.com/projects/235)
