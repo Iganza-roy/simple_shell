@@ -3,17 +3,17 @@
  ![Logo](https://th.bing.com/th/id/OIP.SO9JBWHuCM1X4fsTJHzVaQHaFH?pid=ImgDet&w=136&h=136&c=7&dpr=1.7)
 # SIMPLE_SHELL
 
-This is a custom shell that
-Displays a prompt and waits for the user to type a command. The command line always ends with a new line.
-The prompt is displayed again each time a command has been executed.
-The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-The command lines are made only of one word. No arguments will be passed to programs.
-If an executable cannot be found, print an error message and display the prompt again.
-Handles errors.
+This project is a custom shell built in C. The shell displays a prompt, waits for the user to type a command, and executes the command. It handles simple, single-word commands without advanced features like semicolons, pipes, or redirections. If an executable cannot be found, an error message is printed, and the prompt is displayed again.
 
 </div>
 
 ----------------
+
+## Features
+- Displays a prompt and waits for user input
+- Executes simple, single-word commands
+- Handles errors gracefully
+- Built in C for performance and efficiency
 
 ## Acknowledgements
 
