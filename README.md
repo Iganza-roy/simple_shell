@@ -1,6 +1,7 @@
-![Logo](https://th.bing.com/th/id/OIP.SO9JBWHuCM1X4fsTJHzVaQHaFH?pid=ImgDet&w=136&h=136&c=7&dpr=1.7)
-# SIMPLE_SHELL
+<div style="center">
 
+ ![Logo](https://th.bing.com/th/id/OIP.SO9JBWHuCM1X4fsTJHzVaQHaFH?pid=ImgDet&w=136&h=136&c=7&dpr=1.7)
+# SIMPLE_SHELL
 
 This is a custom shell that
 Displays a prompt and waits for the user to type a command. The command line always ends with a new line.
@@ -10,6 +11,9 @@ The command lines are made only of one word. No arguments will be passed to prog
 If an executable cannot be found, print an error message and display the prompt again.
 Handles errors.
 
+</div>
+
+----------------
 
 ## Acknowledgements
 
